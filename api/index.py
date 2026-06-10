@@ -5,7 +5,7 @@ import pandas as pd
 import io
 import os
 
-from analyzer import DataAnalyzer
+from api.analyzer import DataAnalyzer
 
 app = FastAPI(title="Insights AI API")
 
