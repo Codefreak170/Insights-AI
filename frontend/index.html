@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights AI - Automated Data Analysis Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="top-nav">
+            <div class="nav-content">
+                <div class="nav-logo">Insights AI</div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link active" onclick="showPage('home')">Home</a>
+                    <a href="#" class="nav-link" onclick="showPage('about')">About</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Home Page -->
+        <div id="homePage" class="page active">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Transform Data Into Actionable Intelligence</h1>
+                    <p class="hero-subtitle">Insights AI automatically analyzes datasets, discovers patterns, generates visualizations, identifies trends, and delivers meaningful business insights in seconds.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-accent btn-lg" onclick="scrollToUpload()">Upload Dataset</button>
+                        <button class="btn btn-outline btn-lg" onclick="scrollToPreview()">View Demo Results</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Second Section: Enterprise Advancement -->
+            <section class="info-section">
+                <div class="container">
+                    <div class="info-grid">
+                        <div class="info-image">
+                            <img src="assets/network.jpg" alt="Network Connections">
+                        </div>
+                        <div class="info-text">
+                            <h2 class="section-heading">Built For Modern Data Analysis</h2>
+                            <p class="section-body">Insights AI transforms raw spreadsheets into understandable business intelligence. Whether you are analyzing sales performance, customer trends, operational metrics, or research datasets, the platform automatically generates meaningful insights without requiring advanced technical expertise.</p>
+                            <button class="btn btn-accent">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Third Section: How It Works -->
+            <section class="how-it-works">
+                <div class="container">
+                    <h2 class="centered-heading">How It Works</h2>
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-icon">1</div>
+                            <h3 class="step-title">Upload Dataset</h3>
+                            <p class="step-desc">Securely upload CSV files for automated analysis.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-icon">2</div>
+                            <h3 class="step-title">Analyze Data</h3>
+                            <p class="step-desc">Automatically perform descriptive statistics and exploratory analysis.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-icon">3</div>
+                            <h3 class="step-title">Generate Insights</h3>
+                            <p class="step-desc">Identify trends, correlations, anomalies, and business opportunities.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-icon">4</div>
+                            <h3 class="step-title">Export Reports</h3>
+                            <p class="step-desc">Download PDF and JSON reports instantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fourth Section: Platform Capabilities -->
+            <section class="capabilities-section">
+                <div class="capabilities-bg"></div>
+                <div class="container">
+                    <h2 class="centered-heading white">Platform Capabilities</h2>
+                    <div class="capabilities-grid">
+                        <div class="capability-card">
+                            <h3 class="capability-title">Dataset Profiling</h3>
+                            <p class="capability-desc">Automatically understand dataset structure, quality, and composition.</p>
+                        </div>
+                        <div class="capability-card">
+                            <h3 class="capability-title">Statistical Analysis</h3>
+                            <p class="capability-desc">Generate descriptive statistics, distributions, correlations, and trends.</p>
+                        </div>
+                        <div class="capability-card">
+                            <h3 class="capability-title">Business Intelligence</h3>
+                            <p class="capability-desc">Convert raw numbers into actionable insights and decision-ready summaries.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fifth Section: Upload & Dashboard (Live Product Preview) -->
+            <section class="product-preview" id="productPreview">
+                <div class="container">
+                    <h2 class="centered-heading">Live Product Preview</h2>
+                    
+                    <!-- Upload Area -->
+                    <div class="upload-container" id="uploadSection">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-content">
+                                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                <h2 class="upload-title">Upload CSV File</h2>
+                                <p class="upload-description">Drag and drop your CSV file here or click to browse</p>
+                                <input type="file" id="fileInput" accept=".csv" hidden>
+                            </div>
+                        </div>
+                        <button id="uploadBtn" class="btn btn-accent btn-lg">Choose File</button>
+                    </div>
+
+                    <!-- Loading Indicator -->
+                    <div id="loadingIndicator" class="loading-indicator hidden">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Analyzing your data...</p>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="errorMessage" class="error-message hidden"></div>
+
+                    <!-- Results Dashboard -->
+                    <div id="resultsDashboard" class="results-dashboard hidden">
+                        <!-- Dataset Summary -->
+                        <div class="dashboard-section">
+                            <h3 class="dashboard-section-title">Dataset Overview</h3>
+                            <div class="kpi-grid">
+                                <div class="kpi-card">
+                                    <div class="kpi-label">Total Rows</div>
+                                    <div class="kpi-value" id="rowCount">0</div>
+                                </div>
+                                <div class="kpi-card">
+                                    <div class="kpi-label">Total Columns</div>
+                                    <div class="kpi-value" id="colCount">0</div>
+                                </div>
+                                <div class="kpi-card">
+                                    <div class="kpi-label">Missing Values</div>
+                                    <div class="kpi-value" id="missingCount">0</div>
+                                </div>
+                                <div class="kpi-card">
+                                    <div class="kpi-label">Missing %</div>
+                                    <div class="kpi-value" id="missingPercent">0%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Statistics -->
+                        <div class="dashboard-section">
+                            <h3 class="dashboard-section-title">Descriptive Statistics</h3>
+                            <div class="table-card">
+                                <table class="statistics-table" id="statsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Column</th>
+                                            <th>Mean</th>
+                                            <th>Median</th>
+                                            <th>Min</th>
+                                            <th>Max</th>
+                                            <th>Std Dev</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="statsBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Insights -->
+                        <div class="dashboard-section">
+                            <h3 class="dashboard-section-title">Key Insights</h3>
+                            <div class="insights-grid" id="insightsList"></div>
+                        </div>
+
+                        <!-- Visualizations -->
+                        <div class="dashboard-section">
+                            <h3 class="dashboard-section-title">Visualizations</h3>
+                            <div class="charts-grid">
+                                <!-- Dynamic charts will be inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Export -->
+                        <div class="dashboard-section">
+                            <h3 class="dashboard-section-title">Export Report</h3>
+                            <div class="export-actions">
+                                <button id="exportPdfBtn" class="btn btn-accent">Download PDF</button>
+                                <button id="exportJsonBtn" class="btn btn-accent">Download JSON</button>
+                            </div>
+                        </div>
+
+                        <!-- Reset -->
+                        <div class="reset-section">
+                            <button id="resetBtn" class="btn btn-tertiary">Analyze Another File</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="aboutPage" class="page">
+            <section class="about-hero">
+                <div class="container">
+                    <h1 class="about-title">About Insights AI</h1>
+                    <p class="about-subtitle">Transforming raw data into meaningful business intelligence.</p>
+                </div>
+            </section>
+
+            <section class="about-content">
+                <div class="container">
+                    <div class="about-main-text">
+                        <p>Insights AI is an automated analytics platform designed to simplify data exploration and accelerate decision-making. The platform automatically performs exploratory data analysis, generates descriptive statistics, identifies patterns, creates visualizations, detects correlations, and produces business-focused insights without requiring advanced analytical expertise.</p>
+                        <p>Our mission is to make professional-grade analytics accessible to anyone working with data.</p>
+                    </div>
+
+                    <h2 class="centered-heading">Core Capabilities</h2>
+                    <div class="capabilities-grid-2x3">
+                        <div class="capability-card-simple">
+                            <h3 class="cap-title">Dataset Profiling</h3>
+                            <p class="cap-desc">Automatically understand dataset structure, quality, and composition.</p>
+                        </div>
+                        <div class="capability-card-simple">
+                            <h3 class="cap-title">Statistical Analysis</h3>
+                            <p class="cap-desc">Generate descriptive statistics, distributions, correlations, and trends.</p>
+                        </div>
+                        <div class="capability-card-simple">
+                            <h3 class="cap-title">Trend Detection</h3>
+                            <p class="cap-desc">Identify patterns and changes over time in your datasets.</p>
+                        </div>
+                        <div class="capability-card-simple">
+                            <h3 class="cap-title">Visualization</h3>
+                            <p class="cap-desc">Generate high-quality charts that tell the story of your data.</p>
+                        </div>
+                        <div class="capability-card-simple">
+                            <h3 class="cap-title">Correlation Analysis</h3>
+                            <p class="cap-desc">Discover hidden relationships between different variables.</p>
+                        </div>
+                        <div class="capability-card-simple">
+                            <h3 class="cap-title">Report Generation</h3>
+                            <p class="cap-desc">Instantly export your findings to professional PDF and JSON reports.</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-stack">
+                        <h2 class="centered-heading">Technology Stack</h2>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <strong>Frontend</strong>
+                                <span>HTML, CSS, JavaScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <strong>Backend</strong>
+                                <span>Python, FastAPI</span>
+                            </div>
+                            <div class="tech-item">
+                                <strong>Analytics</strong>
+                                <span>Pandas, NumPy</span>
+                            </div>
+                            <div class="tech-item">
+                                <strong>Visualization</strong>
+                                <span>Chart.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <p>&copy; 2026 Insights AI. Automated Data Analysis Platform.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

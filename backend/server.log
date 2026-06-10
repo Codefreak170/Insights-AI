@@ -1,0 +1,60 @@
+[2026-06-07 14:03:59 +0000] [5176] [INFO] Starting gunicorn 26.0.0
+[2026-06-07 14:03:59 +0000] [5176] [INFO] Listening at: http://0.0.0.0:8000 (5176)
+[2026-06-07 14:03:59 +0000] [5176] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2026-06-07 14:03:59 +0000] [5177] [INFO] Booting worker with pid: 5177
+[2026-06-07 14:03:59 +0000] [5178] [INFO] Booting worker with pid: 5178
+[2026-06-07 14:03:59 +0000] [5179] [INFO] Booting worker with pid: 5179
+[2026-06-07 14:03:59 +0000] [5180] [INFO] Booting worker with pid: 5180
+[2026-06-07 14:03:59 +0000] [5176] [INFO] Control socket listening at /home/ubuntu/.gunicorn/gunicorn.ctl
+[2026-06-07 14:04:01 +0000] [5177] [INFO] Started server process [5177]
+[2026-06-07 14:04:01 +0000] [5177] [INFO] Waiting for application startup.
+[2026-06-07 14:04:01 +0000] [5177] [INFO] Application startup complete.
+[2026-06-07 14:04:01 +0000] [5178] [INFO] Started server process [5178]
+[2026-06-07 14:04:01 +0000] [5178] [INFO] Waiting for application startup.
+[2026-06-07 14:04:01 +0000] [5178] [INFO] Application startup complete.
+[2026-06-07 14:04:01 +0000] [5179] [INFO] Started server process [5179]
+[2026-06-07 14:04:01 +0000] [5179] [INFO] Waiting for application startup.
+[2026-06-07 14:04:01 +0000] [5179] [INFO] Application startup complete.
+[2026-06-07 14:04:02 +0000] [5180] [INFO] Started server process [5180]
+[2026-06-07 14:04:02 +0000] [5180] [INFO] Waiting for application startup.
+[2026-06-07 14:04:02 +0000] [5180] [INFO] Application startup complete.
+/home/ubuntu/backend/analyzer.py:48: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(sample, errors='raise')
+/home/ubuntu/backend/analyzer.py:48: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(sample, errors='raise')
+/home/ubuntu/backend/analyzer.py:48: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(sample, errors='raise')
+/home/ubuntu/backend/analyzer.py:48: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(sample, errors='raise')
+[2026-06-07 14:23:26 +0000] [5176] [CRITICAL] WORKER TIMEOUT (pid:5177)
+[2026-06-07 14:23:26 +0000] [5176] [CRITICAL] WORKER TIMEOUT (pid:5178)
+[2026-06-07 14:23:26 +0000] [5176] [CRITICAL] WORKER TIMEOUT (pid:5179)
+[2026-06-07 14:23:26 +0000] [5176] [CRITICAL] WORKER TIMEOUT (pid:5180)
+[2026-06-07 14:23:26 +0000] [5176] [WARNING] Worker (pid:5178) was sent SIGABRT!
+[2026-06-07 14:23:26 +0000] [5176] [WARNING] Worker (pid:5179) was sent SIGABRT!
+[2026-06-07 14:23:26 +0000] [5729] [INFO] Booting worker with pid: 5729
+[2026-06-07 14:23:26 +0000] [5176] [INFO] Control socket listening at /home/ubuntu/.gunicorn/gunicorn.ctl
+[2026-06-07 14:23:26 +0000] [5731] [INFO] Booting worker with pid: 5731
+[2026-06-07 14:23:26 +0000] [5176] [INFO] Control socket listening at /home/ubuntu/.gunicorn/gunicorn.ctl
+[2026-06-07 14:23:26 +0000] [5176] [ERROR] Worker (pid:5177) was sent SIGKILL! Perhaps out of memory?
+[2026-06-07 14:23:26 +0000] [5176] [ERROR] Worker (pid:5180) was sent SIGKILL! Perhaps out of memory?
+[2026-06-07 14:23:26 +0000] [5733] [INFO] Booting worker with pid: 5733
+[2026-06-07 14:23:26 +0000] [5176] [INFO] Control socket listening at /home/ubuntu/.gunicorn/gunicorn.ctl
+[2026-06-07 14:23:26 +0000] [5735] [INFO] Booting worker with pid: 5735
+[2026-06-07 14:23:26 +0000] [5176] [INFO] Control socket listening at /home/ubuntu/.gunicorn/gunicorn.ctl
+[2026-06-07 14:23:29 +0000] [5729] [INFO] Started server process [5729]
+[2026-06-07 14:23:29 +0000] [5729] [INFO] Waiting for application startup.
+[2026-06-07 14:23:29 +0000] [5729] [INFO] Application startup complete.
+[2026-06-07 14:23:29 +0000] [5731] [INFO] Started server process [5731]
+[2026-06-07 14:23:29 +0000] [5731] [INFO] Waiting for application startup.
+[2026-06-07 14:23:29 +0000] [5731] [INFO] Application startup complete.
+[2026-06-07 14:23:29 +0000] [5733] [INFO] Started server process [5733]
+[2026-06-07 14:23:29 +0000] [5733] [INFO] Waiting for application startup.
+[2026-06-07 14:23:29 +0000] [5733] [INFO] Application startup complete.
+[2026-06-07 14:23:29 +0000] [5735] [INFO] Started server process [5735]
+[2026-06-07 14:23:29 +0000] [5735] [INFO] Waiting for application startup.
+[2026-06-07 14:23:29 +0000] [5735] [INFO] Application startup complete.
+/home/ubuntu/backend/analyzer.py:48: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(sample, errors='raise')
+/home/ubuntu/backend/analyzer.py:48: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(sample, errors='raise')
